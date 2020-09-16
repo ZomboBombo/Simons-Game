@@ -1,0 +1,44 @@
+// === GLOBAL STYLES ===
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 260px;
+  min-height: 100vh;
+
+  background-color: #ffffff;
+
+  font-size: 15px;
+  line-height: 24px;
+  font-family: "Open Sans", "Arial", sans-serif;
+  color: #000000;
+
+  // *** To eliminate horizontal scrolling in IE 11, Edge and Safari ***
+  overflow-x: hidden;
+}
+
+
+// === Class for accessible hiding of elements ===
+.visually-hidden {
+  width: 1px;
+  height: 1px;
+
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

@@ -1,0 +1,20 @@
+/* **********************
+*** 1. Service styles ***
+********************** */
+@import "normalize.scss";
+@import "fonts.scss";
+@import "variables.scss";
+@import "mixins.scss";
+@import "global.scss";
+
+
+/* *******************
+*** 2. Main styles ***
+******************* */
+@import "blocks/main-content.scss";
+@import "blocks/registration-form.scss";
+@import "blocks/data-fieldset.scss";
+@import "blocks/list-of-data.scss";
+
+@import "blocks/modal.scss";
+@import "blocks/invalid.scss";

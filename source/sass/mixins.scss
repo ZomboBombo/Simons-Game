@@ -1,0 +1,9 @@
+// === MIXINS ===
+
+// *** Mixin for removing bulleted list item markers and indenting ***
+@mixin markerless {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}

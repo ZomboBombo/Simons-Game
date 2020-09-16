@@ -1,0 +1,53 @@
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+	width: auto;
+	min-width: 240px;
+  max-width: 900px;
+
+	margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 0;
+  padding-bottom: 30px;
+
+	background-color: $background--form;
+  border-radius: 40px;
+  box-shadow: 0 5px 6px 3px rgba($black, 0.2);
+}
+
+.registration-form__submit-button {
+  width: 400px;
+  min-width: 200px;
+  min-height: 50px;
+
+  margin: 0 auto;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  color: $white;
+  text-transform: uppercase;
+
+  background-color: $background--sumbit-button;
+  border: none;
+  border-radius: 7px;
+  box-shadow: 0 0 3px $black;
+
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-property: background-color, color;
+}
+
+
+.registration-form__submit-button:hover,
+.registration-form__submit-button:focus {
+  background-color: $background--sumbit-button-hover;
+}
+
+.registration-form__submit-button:active {
+  color: $black;
+
+  background-color: $background--sumbit-button-active;
+}
