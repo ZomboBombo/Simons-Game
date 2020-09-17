@@ -12074,9 +12074,41 @@ new _vue["default"]({
     return h(_simonsGame["default"]);
   }
 }).$mount('#simonsGame');
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfN2IyZTNjMGYuanMiXSwibmFtZXMiOlsiVnVlIiwiY29uZmlnIiwicHJvZHVjdGlvblRpcCIsImRldnRvb2xzIiwicmVuZGVyIiwiaCIsInNpbW9uc0dhbWUiLCIkbW91bnQiXSwibWFwcGluZ3MiOiJBQUFBLGEsQ0FFQTs7QUFDQTs7QUFHQTs7OztBQURBO0FBSUE7QUFDQUEsZ0JBQUlDLE1BQUosQ0FBV0MsYUFBWCxHQUEyQixLQUEzQjtBQUNBRixnQkFBSUMsTUFBSixDQUFXRSxRQUFYLEdBQXNCLElBQXRCLEMsQ0FHQTs7QUFDQSxJQUFJSCxlQUFKLENBQVE7QUFDTkksRUFBQUEsTUFBTSxFQUFFLGdCQUFBQyxDQUFDO0FBQUEsV0FBSUEsQ0FBQyxDQUFDQyxzQkFBRCxDQUFMO0FBQUE7QUFESCxDQUFSLEVBRUdDLE1BRkgsQ0FFVSxhQUZWIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xyXG5cclxuLy8gKioqIEltcG9ydGluZyBtYWluIHRvb2xzIGZvciBkZXZlbG9wbWVudCAgKioqXHJcbmltcG9ydCBWdWUgZnJvbSBcInZ1ZVwiO1xyXG5cclxuLy8gKioqIEltcG9ydGluZyBWdWUtY29tcG9uZW50cyAqKipcclxuaW1wb3J0IHNpbW9uc0dhbWUgZnJvbSBcIi4vc2ltb25zR2FtZS52dWVcIjtcclxuXHJcblxyXG4vLyAqKiogTWFpbiBWdWUgZGV2ZWxvcG1lbnQgY29uZmlndXJhdGlvbiAqKipcclxuVnVlLmNvbmZpZy5wcm9kdWN0aW9uVGlwID0gZmFsc2U7XHJcblZ1ZS5jb25maWcuZGV2dG9vbHMgPSB0cnVlO1xyXG5cclxuXHJcbi8vICoqKiBWdWUgaW5zdGFuY2UgKioqXHJcbm5ldyBWdWUoe1xyXG4gIHJlbmRlcjogaCA9PiBoKHNpbW9uc0dhbWUpXHJcbn0pLiRtb3VudCgnI3NpbW9uc0dhbWUnKTtcclxuIl19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfZThmZmM5MDguanMiXSwibmFtZXMiOlsiVnVlIiwiY29uZmlnIiwicHJvZHVjdGlvblRpcCIsImRldnRvb2xzIiwicmVuZGVyIiwiaCIsInNpbW9uc0dhbWUiLCIkbW91bnQiXSwibWFwcGluZ3MiOiJBQUFBLGEsQ0FFQTs7QUFDQTs7QUFHQTs7OztBQURBO0FBSUE7QUFDQUEsZ0JBQUlDLE1BQUosQ0FBV0MsYUFBWCxHQUEyQixLQUEzQjtBQUNBRixnQkFBSUMsTUFBSixDQUFXRSxRQUFYLEdBQXNCLElBQXRCLEMsQ0FHQTs7QUFDQSxJQUFJSCxlQUFKLENBQVE7QUFDTkksRUFBQUEsTUFBTSxFQUFFLGdCQUFBQyxDQUFDO0FBQUEsV0FBSUEsQ0FBQyxDQUFDQyxzQkFBRCxDQUFMO0FBQUE7QUFESCxDQUFSLEVBRUdDLE1BRkgsQ0FFVSxhQUZWIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xyXG5cclxuLy8gKioqIEltcG9ydGluZyBtYWluIHRvb2xzIGZvciBkZXZlbG9wbWVudCAgKioqXHJcbmltcG9ydCBWdWUgZnJvbSBcInZ1ZVwiO1xyXG5cclxuLy8gKioqIEltcG9ydGluZyBWdWUtY29tcG9uZW50cyAqKipcclxuaW1wb3J0IHNpbW9uc0dhbWUgZnJvbSBcIi4vc2ltb25zR2FtZS52dWVcIjtcclxuXHJcblxyXG4vLyAqKiogTWFpbiBWdWUgZGV2ZWxvcG1lbnQgY29uZmlndXJhdGlvbiAqKipcclxuVnVlLmNvbmZpZy5wcm9kdWN0aW9uVGlwID0gZmFsc2U7XHJcblZ1ZS5jb25maWcuZGV2dG9vbHMgPSB0cnVlO1xyXG5cclxuXHJcbi8vICoqKiBWdWUgaW5zdGFuY2UgKioqXHJcbm5ldyBWdWUoe1xyXG4gIHJlbmRlcjogaCA9PiBoKHNpbW9uc0dhbWUpXHJcbn0pLiRtb3VudCgnI3NpbW9uc0dhbWUnKTtcclxuIl19
 },{"./simonsGame.vue":7,"vue":4}],7:[function(require,module,exports){
 ;(function(){
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12088,7 +12120,7 @@ new _vue["default"]({
 module.exports = {
   data() {
     return {
-      simonsGreeting: 'Hi! I am Simon! :)'
+      
     }
   },
   methods: {}
@@ -12098,8 +12130,8 @@ module.exports = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"simons-game-wrapper"},[_c('h1',[_vm._v(_vm._s(_vm.simonsGreeting))])])}
-__vue__options__.staticRenderFns = []
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _vm._m(0)}
+__vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"game"},[_c('h2',{staticClass:"visually-hidden"},[_vm._v("Simons Game Application")]),_vm._v(" "),_c('div',{staticClass:"game__tiles tiles"},[_c('div',{staticClass:"tiles__group tiles__group--top"},[_c('button',{staticClass:"tiles__item tiles__item--top-left"}),_vm._v(" "),_c('button',{staticClass:"tiles__item tiles__item--top-right"})]),_vm._v(" "),_c('div',{staticClass:"tiles__group tiles__group--bottom"},[_c('button',{staticClass:"tiles__item tiles__item--bottom-left"}),_vm._v(" "),_c('button',{staticClass:"tiles__item tiles__item--bottom-right"})])]),_vm._v(" "),_c('div',{staticClass:"game__difficulty"},[_c('p',{staticClass:"game__difficulty-heading"},[_vm._v("Difficulty levels")]),_vm._v(" "),_c('ol',{staticClass:"difficulty-levels"},[_c('li',{staticClass:"difficulty-levels__item"},[_c('input',{attrs:{"type":"radio","name":"difficulty-easy","id":"easy","checked":""}}),_vm._v(" "),_c('label',{attrs:{"for":"easy"}},[_vm._v("Easy")])]),_vm._v(" "),_c('li',{staticClass:"difficulty-levels__item"},[_c('input',{attrs:{"type":"radio","name":"difficulty-medium","id":"medium"}}),_vm._v(" "),_c('label',{attrs:{"for":"medium"}},[_vm._v("Medium")])]),_vm._v(" "),_c('li',{staticClass:"difficulty-levels__item"},[_c('input',{attrs:{"type":"radio","name":"difficulty-hard","id":"hard"}}),_vm._v(" "),_c('label',{attrs:{"for":"hard"}},[_vm._v("Hard")])])])])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -12107,7 +12139,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-3a5127d5", __vue__options__)
   } else {
-    hotAPI.reload("data-v-3a5127d5", __vue__options__)
+    hotAPI.rerender("data-v-3a5127d5", __vue__options__)
   }
 })()}
 },{"vue":4,"vue-hot-reload-api":2}]},{},[6])
