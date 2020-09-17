@@ -4,7 +4,7 @@
 import Vue from "vue";
 
 // *** Importing Vue-components ***
-import simonsGame from "./simonsGame.vue";
+import simonsGameApp from "./simonsGame.vue";
 
 
 // *** Main Vue development configuration ***
@@ -13,6 +13,9 @@ Vue.config.devtools = true;
 
 
 // *** Vue instance ***
-new Vue({
-  render: h => h(simonsGame)
-}).$mount('#simonsGame');
+window.addEventListener('load', function () {
+  new Vue({
+    render: h => h(simonsGameApp)
+  }).$mount('#simonsGame');
+});
+
