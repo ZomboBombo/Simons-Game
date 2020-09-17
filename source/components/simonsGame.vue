@@ -34,6 +34,8 @@
       </ol>
 
       <button type="button" class="game__start-button" @click="onPlayClick">Play</button>
+
+      <p class="game__loss-message">You lose...</p>
     </div>
   </section>
 </template>
@@ -53,14 +55,18 @@
         var FIRST_ELEMENT = 0;
         var ZERO = 0;
 
+        // *** DOM-elements ***
+        var tiles = document.querySelectorAll('.tiles__item');
+        var difficultyTogglers = document.querySelectorAll('.difficulty-levels input[name=difficulty]');
+        var gameOverMessage = document.querySelector('.game__loss-message');
 
-        // *** Helper Utilities ***
-        var getRandomNumber = function (min, max) {
-          return Math.floor(min + Math.random() * max);
+        // *** Data Variables ***
+        var arrayOfTileObjects = [];
+        var DifficultyLevel = {
+          easy: 1500,
+          medium: 1000,
+          hard: 400
         };
-
-        console.log('Click!');
-
 
         /*
           __________________________________
@@ -69,32 +75,74 @@
           __________________________________
 
         */
-        var tiles = document.querySelectorAll('.tiles__item');
+        gameOverMessage.classList.remove('game__loss-message--show');
 
-        var getRandomTile = function () {
-          return tiles[getRandomNumber(FIRST_ELEMENT, tiles.length)];
+        Array.from(difficultyTogglers).forEach(element => {
+          element.setAttribute('disabled', 'disabled');
+        });
+
+
+        var getRandomTileObject = function () {
+          return arrayOfTileObjects[Math.floor(FIRST_ELEMENT + Math.random() * tiles.length)];
         };
 
-        var randomTilesSequence = [ getRandomTile() ];
+
+        var getTileObject = function (tile, index) {          
+          return {
+            name: tile,
+            sound: new Audio('./sounds/' + index + '.mp3')
+          };
+        };
+
+
+        var playSound = function (targetObject) {
+          for (var i = 0; i < arrayOfTileObjects.length; i++) {
+            if (arrayOfTileObjects[i].name.classList.value === targetObject.classList.value) {
+              arrayOfTileObjects[i].sound.play();
+            }
+          }
+        };
+
+        
+        Array.from(tiles).forEach((element, index) => {
+          var soundNum = index + 1;
+          arrayOfTileObjects.push(getTileObject(element, soundNum));  
+        });
+
+
+        var randomTilesSequence = [getRandomTileObject()];
         var tilesSequenceToGuess = randomTilesSequence.slice();
 
 
         // *** Event Listener for click on the tiles ***
         var onTileClick = function (evt) {
+          evt.preventDefault();
+
           if (CAN_CLICK) {
+            playSound(evt.target);
+
             var expectedTile = tilesSequenceToGuess.shift();
 
-            if (expectedTile === evt.target) {
-              console.log('This is target:', evt.target);
-
+            if (expectedTile.name.classList.value === evt.target.classList.value) {
               if (tilesSequenceToGuess.length === ZERO) {
                 // --- Start new round---
-                randomTilesSequence.push(getRandomTile());
-                tilesSequenceToGuess = randomTilesSequence.slice();
-                startFlashing();
+                setTimeout(() => {
+                  randomTilesSequence.push(getRandomTileObject());
+                  tilesSequenceToGuess = randomTilesSequence.slice();
+                  startFlashing();
+                }, 1000);
+
               }
             } else {
-              alert('Game Over!');
+              Array.from(difficultyTogglers).forEach(element => {
+                element.removeAttribute('disabled');
+              });
+
+              gameOverMessage.classList.add('game__loss-message--show');
+
+              randomTilesSequence = [getRandomTileObject()];
+              tilesSequenceToGuess = randomTilesSequence.slice();
+              CAN_CLICK = false;
             }
           }
         };
@@ -105,9 +153,16 @@
 
 
         // *** Function to starting flashing tiles ***
-        var getFlashingTile = function (tile) {
+        var getFlashingTile = function (tile, tileSound, speed) {
+          for (var i = 0; i < difficultyTogglers.length; i++) {
+            if (difficultyTogglers[i].checked) {
+              speed = difficultyTogglers[i].id;
+            }
+          }
+
           return new Promise (function (resolve, reject) {
             tile.classList.add('active');
+            tileSound.play();
 
             setTimeout(() => {
               console.log('Active tile:', tile);
@@ -115,8 +170,8 @@
 
               setTimeout(() => {
                 resolve();
-              }, 100);
-            }, 300);
+              }, 300);
+            }, DifficultyLevel[speed]);
           });
         };
 
@@ -124,8 +179,8 @@
         var startFlashing = async function () {
           CAN_CLICK = false;
 
-          for (var tileElement of tilesSequenceToGuess) {
-            await getFlashingTile(tileElement);
+          for (var tileObject of tilesSequenceToGuess) {
+            await getFlashingTile(tileObject.name, tileObject.sound);
           }
 
           CAN_CLICK = true;
