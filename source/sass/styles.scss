@@ -12,9 +12,6 @@
 *** 2. Main styles ***
 ******************* */
 @import "blocks/main-content.scss";
-@import "blocks/registration-form.scss";
-@import "blocks/data-fieldset.scss";
-@import "blocks/list-of-data.scss";
-
-@import "blocks/modal.scss";
-@import "blocks/invalid.scss";
+@import "blocks/game.scss";
+@import "blocks/tiles.scss";
+@import "blocks/difficulty-levels.scss";
