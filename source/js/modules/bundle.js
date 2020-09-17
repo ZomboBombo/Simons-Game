@@ -9082,6 +9082,8 @@ var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".active 
 //
 //
 //
+//
+//
 
 module.exports = {
   data() {
@@ -9096,14 +9098,18 @@ module.exports = {
       var FIRST_ELEMENT = 0;
       var ZERO = 0;
 
+      // *** DOM-elements ***
+      var tiles = document.querySelectorAll('.tiles__item');
+      var difficultyTogglers = document.querySelectorAll('.difficulty-levels input[name=difficulty]');
+      var gameOverMessage = document.querySelector('.game__loss-message');
 
-      // *** Helper Utilities ***
-      var getRandomNumber = function (min, max) {
-        return Math.floor(min + Math.random() * max);
+      // *** Data Variables ***
+      var arrayOfTileObjects = [];
+      var DifficultyLevel = {
+        easy: 1500,
+        medium: 1000,
+        hard: 400
       };
-
-      console.log('Click!');
-
 
       /*
         __________________________________
@@ -9112,32 +9118,74 @@ module.exports = {
         __________________________________
 
       */
-      var tiles = document.querySelectorAll('.tiles__item');
+      gameOverMessage.classList.remove('game__loss-message--show');
 
-      var getRandomTile = function () {
-        return tiles[getRandomNumber(FIRST_ELEMENT, tiles.length)];
+      Array.from(difficultyTogglers).forEach(element => {
+        element.setAttribute('disabled', 'disabled');
+      });
+
+
+      var getRandomTileObject = function () {
+        return arrayOfTileObjects[Math.floor(FIRST_ELEMENT + Math.random() * tiles.length)];
       };
 
-      var randomTilesSequence = [ getRandomTile() ];
+
+      var getTileObject = function (tile, index) {          
+        return {
+          name: tile,
+          sound: new Audio('./sounds/' + index + '.mp3')
+        };
+      };
+
+
+      var playSound = function (targetObject) {
+        for (var i = 0; i < arrayOfTileObjects.length; i++) {
+          if (arrayOfTileObjects[i].name.classList.value === targetObject.classList.value) {
+            arrayOfTileObjects[i].sound.play();
+          }
+        }
+      };
+
+      
+      Array.from(tiles).forEach((element, index) => {
+        var soundNum = index + 1;
+        arrayOfTileObjects.push(getTileObject(element, soundNum));  
+      });
+
+
+      var randomTilesSequence = [getRandomTileObject()];
       var tilesSequenceToGuess = randomTilesSequence.slice();
 
 
       // *** Event Listener for click on the tiles ***
       var onTileClick = function (evt) {
+        evt.preventDefault();
+
         if (CAN_CLICK) {
+          playSound(evt.target);
+
           var expectedTile = tilesSequenceToGuess.shift();
 
-          if (expectedTile === evt.target) {
-            console.log('This is target:', evt.target);
-
+          if (expectedTile.name.classList.value === evt.target.classList.value) {
             if (tilesSequenceToGuess.length === ZERO) {
               // --- Start new round---
-              randomTilesSequence.push(getRandomTile());
-              tilesSequenceToGuess = randomTilesSequence.slice();
-              startFlashing();
+              setTimeout(() => {
+                randomTilesSequence.push(getRandomTileObject());
+                tilesSequenceToGuess = randomTilesSequence.slice();
+                startFlashing();
+              }, 1000);
+
             }
           } else {
-            alert('Game Over!');
+            Array.from(difficultyTogglers).forEach(element => {
+              element.removeAttribute('disabled');
+            });
+
+            gameOverMessage.classList.add('game__loss-message--show');
+
+            randomTilesSequence = [getRandomTileObject()];
+            tilesSequenceToGuess = randomTilesSequence.slice();
+            CAN_CLICK = false;
           }
         }
       };
@@ -9148,9 +9196,16 @@ module.exports = {
 
 
       // *** Function to starting flashing tiles ***
-      var getFlashingTile = function (tile) {
+      var getFlashingTile = function (tile, tileSound, speed) {
+        for (var i = 0; i < difficultyTogglers.length; i++) {
+          if (difficultyTogglers[i].checked) {
+            speed = difficultyTogglers[i].id;
+          }
+        }
+
         return new Promise (function (resolve, reject) {
           tile.classList.add('active');
+          tileSound.play();
 
           setTimeout(() => {
             console.log('Active tile:', tile);
@@ -9158,8 +9213,8 @@ module.exports = {
 
             setTimeout(() => {
               resolve();
-            }, 100);
-          }, 300);
+            }, 300);
+          }, DifficultyLevel[speed]);
         });
       };
 
@@ -9167,8 +9222,8 @@ module.exports = {
       var startFlashing = async function () {
         CAN_CLICK = false;
 
-        for (var tileElement of tilesSequenceToGuess) {
-          await getFlashingTile(tileElement);
+        for (var tileObject of tilesSequenceToGuess) {
+          await getFlashingTile(tileObject.name, tileObject.sound);
         }
 
         CAN_CLICK = true;
@@ -9183,7 +9238,7 @@ module.exports = {
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"game"},[_c('h2',{staticClass:"visually-hidden"},[_vm._v("Simons Game Application")]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"game__difficulty"},[_c('p',{staticClass:"game__difficulty-heading"},[_vm._v("Difficulty levels")]),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('button',{staticClass:"game__start-button",attrs:{"type":"button"},on:{"click":_vm.onPlayClick}},[_vm._v("Play")])])])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('section',{staticClass:"game"},[_c('h2',{staticClass:"visually-hidden"},[_vm._v("Simons Game Application")]),_vm._v(" "),_vm._m(0),_vm._v(" "),_c('div',{staticClass:"game__difficulty"},[_c('p',{staticClass:"game__difficulty-heading"},[_vm._v("Difficulty levels")]),_vm._v(" "),_vm._m(1),_vm._v(" "),_c('button',{staticClass:"game__start-button",attrs:{"type":"button"},on:{"click":_vm.onPlayClick}},[_vm._v("Play")]),_vm._v(" "),_c('p',{staticClass:"game__loss-message"},[_vm._v("You lose...")])])])}
 __vue__options__.staticRenderFns = [function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"game__tiles tiles"},[_c('div',{staticClass:"tiles__group tiles__group--top"},[_c('button',{staticClass:"tiles__item tiles__item--top-left",attrs:{"type":"button"}}),_vm._v(" "),_c('button',{staticClass:"tiles__item tiles__item--top-right",attrs:{"type":"button"}})]),_vm._v(" "),_c('div',{staticClass:"tiles__group tiles__group--bottom"},[_c('button',{staticClass:"tiles__item tiles__item--bottom-left",attrs:{"type":"button"}}),_vm._v(" "),_c('button',{staticClass:"tiles__item tiles__item--bottom-right",attrs:{"type":"button"}})])])},function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('ol',{staticClass:"difficulty-levels"},[_c('li',{staticClass:"difficulty-levels__item"},[_c('input',{attrs:{"type":"radio","name":"difficulty","id":"easy","checked":""}}),_vm._v(" "),_c('label',{attrs:{"for":"easy"}},[_vm._v("Easy")])]),_vm._v(" "),_c('li',{staticClass:"difficulty-levels__item"},[_c('input',{attrs:{"type":"radio","name":"difficulty","id":"medium"}}),_vm._v(" "),_c('label',{attrs:{"for":"medium"}},[_vm._v("Medium")])]),_vm._v(" "),_c('li',{staticClass:"difficulty-levels__item"},[_c('input',{attrs:{"type":"radio","name":"difficulty","id":"hard"}}),_vm._v(" "),_c('label',{attrs:{"for":"hard"}},[_vm._v("Hard")])])])}]
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)

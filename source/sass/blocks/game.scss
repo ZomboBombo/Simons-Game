@@ -44,6 +44,26 @@
   transition-property: color, background-color;
 }
 
+.game__loss-message {
+  display: none;
+  
+  width: 100%;
+  min-height: 50px;
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+
+  border-top: 4px double $black;
+  border-bottom: 4px double $black;
+
+
+  &--show {
+    display: block;
+  }
+}
+
 
 .game__start-button:hover,
 .game__start-button:focus {
