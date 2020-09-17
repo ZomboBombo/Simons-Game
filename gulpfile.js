@@ -123,7 +123,8 @@ gulp.task('refresh', done => {
 // *** Copying files to the folder with final assembly ***
 gulp.task('copy', () => {
   return gulp.src([
-    'source/fonts/**/*.{woff,woff2}'
+    'source/fonts/**/*.{woff,woff2}',
+    'source/sounds/**/*.{mp3,ogg}'
   ], {
     base: 'source'
   })
