@@ -24,12 +24,13 @@ var csso = require("gulp-csso");
 // --- JS-utilities ---
 var concat = require('gulp-concat');
 var terser = require('gulp-terser');
-var pipeline = require('readable-stream').pipeline;
-var babelify = require('babelify').configure({ presets: ['@babel/preset-env'] });
+var babelify = require('babelify');
+var buffer = require('vinyl-buffer');
 
 // --- Vue-utilities ---
-var browserify = require('gulp-browserify');
+var browserify = require('browserify');
 var vueify = require('vueify');
+var source = require('vinyl-source-stream');
 
 // --- Server utitlities ---
 var server = require('browser-sync').create();
@@ -84,16 +85,17 @@ gulp.task('scripts', () => {
 
 // *** Vue-syntax compilation ***
 gulp.task('bundle', () => {
-  return gulp.src('./source/components/main.js')
-    .pipe(browserify({
-      transform: [
-        babelify,
-        vueify
-      ]
-    }))
-    .pipe(rename('bundle.js'))
+  return browserify('./source/components/main.js')
+    .transform('babelify', {
+      plugins: ['@babel/plugin-transform-runtime'],
+      presets: [['@babel/preset-env']]
+    })
+    .transform('vueify')
+    .bundle()
+    .pipe(source('bundle.js'))
     .pipe(gulp.dest('source/js/modules'));
 });
+
 
 
 // *** Server tasks ***
