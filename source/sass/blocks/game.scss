@@ -5,13 +5,12 @@
   margin-top: 60px;
 }
 
+.game__tiles {
+  box-shadow: 0 2px 5px 1px rgba($black, 0.5);
+}
+
 .game__difficulty {
-
-
-  // Временно
-  & > * {
-    outline: 2px dashed blue;
-  }
+  margin-left: 70px;
 }
 
 .game__difficulty-heading {
@@ -22,4 +21,36 @@
   line-height: 35px;
 
   border-bottom: 2px dashed $black;
+}
+
+.game__start-button {
+  width: 130px;
+  min-height: 45px;
+
+  margin-top: 50px;
+
+  font-size: 25px;
+  line-height: 30px;
+  color: $black;
+
+  background-color: $game-start-button;
+
+  border: 1px solid $black;
+  border-radius: 30px;
+
+  box-shadow: 0 2px 5px rgba($black, 0.5);
+  transition-duration: 0.05s;
+  transition-timing-function: ease;
+  transition-property: color, background-color;
+}
+
+
+.game__start-button:hover,
+.game__start-button:focus {
+  background-color: $game-start-button--hover;
+}
+
+.game__start-button:active {
+  color: $white;
+  background-color: $game-start-button--active;
 }
