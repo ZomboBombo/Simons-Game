@@ -1,0 +1,25 @@
+.game {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 60px;
+}
+
+.game__difficulty {
+
+
+  // Временно
+  & > * {
+    outline: 2px dashed blue;
+  }
+}
+
+.game__difficulty-heading {
+  padding-bottom: 5px;
+
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+
+  border-bottom: 2px dashed $black;
+}
