@@ -1,80 +1,150 @@
-.tiles {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/*
+_________________________________________________
 
-  width: 500px;
-  height: 500px;
+--- MEDIA QUERIES for "Mobile" viewport width ---
+_________________________________________________
 
-	background-color: $overlay;
+*/
+@media (min-width: $width--mobile) {
+  .tiles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  border-radius: 50%;
+    width: 300px;
+    height: 300px;
+
+  	background-color: $overlay;
+
+    border-radius: 50%;
+
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-property: width, height;
+  }
+
+  .tiles__group {
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+
+
+    &--top {
+      margin-top: auto;
+    }
+
+    &--bottom {
+      margin-bottom: auto;
+    }
+  }
+
+  .tiles__item {
+    width: 148px;
+    height: 148px;
+
+    margin: 0;
+
+    border: 1px solid $tile--border;
+
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-property: width, height, opacity;
+
+    opacity: 0.4;
+    outline: none;
+    cursor: pointer;
+
+
+    &--top-left {
+      background-color: $tile--top-left;
+
+      border-top-left-radius: 248px;
+      border-bottom-right-radius: 20px;
+    }
+
+    &--top-right {
+      background-color: $tile--top-right;
+
+      border-top-right-radius: 248px;
+      border-bottom-left-radius: 20px;
+    }
+
+    &--bottom-left {
+      background-color: $tile--bottom-left;
+
+      border-bottom-left-radius: 248px;
+      border-top-right-radius: 20px;
+    }
+
+    &--bottom-right {
+      background-color: $tile--bottom-right;
+
+      border-bottom-right-radius: 248px;
+      border-top-left-radius: 20px;
+    }
+  }
+
+  // *** Styles for interactivity ***
+  .tiles__item:hover {
+    opacity: 0.7;
+  }
+
+  .tiles__item:focus {
+    box-shadow: inset 0 0 10px 4px $white;
+  }
+
+  .tiles__item:active {
+    opacity: 1;
+  }
+
+
+  /* ---------------------- End of "Mobile" MEDIA QUERIES ---------------------- */
 }
 
-.tiles__group {
-  display: flex;
 
-  margin: 0;
-  padding: 0;
+/*
+_________________________________________________
 
+--- MEDIA QUERIES for "Tablet" viewport width ---
+_________________________________________________
 
-  &--top {
-    margin-top: auto;
+*/
+@media (min-width: $width--tablet) {
+  .tiles {
+    width: 400px;
+    height: 400px;
   }
 
-  &--bottom {
-    margin-bottom: auto;
-  }
-}
-
-.tiles__item {
-  width: 248px;
-  height: 248px;
-
-  margin: 0;
-
-  border: 1px solid $overlay;
-
-  transition: 0.1s ease opacity;
-  cursor: pointer;
-
-
-  &--top-left {
-    background-color: $tile--top-left;
-
-    border-top-left-radius: 248px;
-    border-bottom-right-radius: 20px;
+  .tiles__item {
+    width: 198px;
+    height: 198px;
   }
 
-  &--top-right {
-    background-color: $tile--top-right;
 
-    border-top-right-radius: 248px;
-    border-bottom-left-radius: 20px;
-  }
-
-  &--bottom-left {
-    background-color: $tile--bottom-left;
-
-    border-bottom-left-radius: 248px;
-    border-top-right-radius: 20px;
-  }
-
-  &--bottom-right {
-    background-color: $tile--bottom-right;
-
-    border-bottom-right-radius: 248px;
-    border-top-left-radius: 20px;
-  }
+  /* ---------------------- End of "Tablet" MEDIA QUERIES ---------------------- */
 }
 
 
-.tiles__item:hover,
-.tiles__item:focus {
-  opacity: 0.85;
-}
+/*
+__________________________________________________
 
-.tiles__item:active {
-  opacity: 0.6;
+--- MEDIA QUERIES for "Desktop" viewport width ---
+__________________________________________________
+
+*/
+@media (min-width: $width--desktop) {
+   .tiles {
+    width: 500px;
+    height: 500px;
+  }
+
+  .tiles__item {
+    width: 248px;
+    height: 248px;
+  }
+
+
+  /* ---------------------- End of "Desktop" MEDIA QUERIES ---------------------- */
 }
