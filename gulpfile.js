@@ -25,7 +25,6 @@ var csso = require("gulp-csso");
 var concat = require('gulp-concat');
 var terser = require('gulp-terser');
 var babelify = require('babelify');
-var buffer = require('vinyl-buffer');
 
 // --- Vue-utilities ---
 var browserify = require('browserify');
