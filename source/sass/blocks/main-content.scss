@@ -1,25 +1,68 @@
-.main-content {
-  width: 100vw;
-  min-height: 100vh;
+/*
+_________________________________________________
 
-  background-color: $smoke;
+--- MEDIA QUERIES for "Mobile" viewport width ---
+_________________________________________________
+
+*/
+@media (min-width: $width--mobile) {
+  .main-content {
+    width: 100vw;
+    min-height: 100vh;
+
+    background-color: $smoke;
+  }
+
+  .main-content__main-heading {
+    display: inline-block;
+
+    width: 100%;
+
+    margin: 0 auto;
+    margin-top: 40px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+    text-align: center;
+
+    border-bottom: 4px double $black;
+  }
+
+
+  /* ---------------------- End of "Mobile" MEDIA QUERIES ---------------------- */
 }
 
-.main-content__main-heading {
-  display: inline-block;
 
-  width: auto;
+/*
+_________________________________________________
 
-  margin: 0;
-  margin-top: 40px;
-  margin-left: 80px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+--- MEDIA QUERIES for "Tablet" viewport width ---
+_________________________________________________
 
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 50px;
+*/
+@media (min-width: $width--tablet) {
+  .main-content__main-heading {
+    display: inline-block;
 
-  border-bottom: 4px double $black;
-  border-left: 4px double $black;
+    width: auto;
+
+    margin: 0;
+    margin-top: 40px;
+    margin-left: 80px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+
+    border-bottom: 4px double $black;
+    border-left: 4px double $black;
+  }
+
+
+  /* ---------------------- End of "Tablet" MEDIA QUERIES ---------------------- */
 }

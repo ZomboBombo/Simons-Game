@@ -20,9 +20,7 @@ _________________________________________________
 
   .game__difficulty {
     order: 1;
-
-    margin-right: auto;
-    margin-left: 80px;
+    align-self: center;
   }
 
   .game__difficulty-heading {
@@ -36,7 +34,7 @@ _________________________________________________
   }
 
   .game__start-button {
-    width: 130px;
+    width: 100%;
     min-height: 45px;
 
     margin-top: 50px;
